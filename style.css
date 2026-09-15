@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap');
+* {
+    box-sizing:border-box
+}
+
+html,body {
+    margin:0;
+    min-height:100%;
+    width:100%
+}
+
+body {
+    min-height:100vh;
+    overflow-x:hidden;
+    font-family:"Nunito",system-ui,sans-serif;
+    color:#f8f6fb;
+    background:#0d0a13
+}
+
+/* =========================
+   ARKA PLAN
+   blur(7px) = flu miktarı
+   brightness(.72) = parlaklık
+   ========================= */
+.background {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    z-index:0;
+    background:url("assets/profile.jpg") center/cover no-repeat;
+    filter:blur(7px) brightness(.72) saturate(.82);
+    transform:translateZ(0);
+    backface-visibility:hidden
+}
+
+.shade {
+    position:fixed;
+    inset:0;
+    z-index:1;
+    background:linear-gradient(180deg,rgba(8,7,12,.07),rgba(7,6,11,.31));
+    pointer-events:none
+}
+
+.page {
+    position:relative;
+    z-index:2;
+    min-height:100vh;
+    padding:21px 16px 35px;
+    display:flex;
+    flex-direction:column;
+    align-items:center
+}
+
+.name-pill {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-height:58px;
+    padding:0 18px 0 12px;
+    border-radius:32px;
+    background:rgba(25,24,31,.82);
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 8px 28px rgba(0,0,0,.25);
+    font-size:17px;
+    font-weight:900;
+    letter-spacing:1.2px
+}
+
+.site-logo {
+    width:32px;
+    height:32px;
+    object-fit:contain
+}
+
+/* =========================
+   ANA PANEL
+   rgba(..., .84) içindeki .84 = panel opaklığı
+   1.00 tamamen opak, 0 tamamen şeffaf
+   ========================= */
+.card {
+    width:min(100%,422px);
+    margin-top:27px;
+    padding:28px 25px 25px;
+    border-radius:30px;
+    background:linear-gradient(180deg,rgba(14,10,24,.64),rgba(12,9,19,.84));
+    border:1px solid rgba(255,255,255,.16);
+    box-shadow:0 24px 70px rgba(0,0,0,.4)
+}
+
+/* Profil fotoğrafı */
+.profile-wrap {
+    width:120px;
+    height:120px;
+    margin:0 auto 18px;
+    padding:3px;
+    border-radius:50%;
+    background:linear-gradient(145deg,#7657a5,#6d3b83);
+    box-shadow:0 0 22px rgba(144,70,184,.36)
+}
+
+.profile {
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    border-radius:50%;
+    border:2px solid #3b294b
+}
+
+.tag {
+    width:fit-content;
+    margin:0 auto 10px;
+    padding:4px 13px 3px;
+    border-radius:20px;
+    border:1px solid rgba(183,111,209,.38);
+    background:rgba(117,63,132,.2);
+    color:#c7b6ce;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px
+}
+
+h1 {
+    margin:0;
+    text-align:center;
+    font-size:31px;
+    line-height:1.15;
+    font-weight:900;
+    letter-spacing:-.8px
+}
+
+.intro {
+    margin:13px auto 30px;
+    max-width:330px;
+    text-align:center;
+    color:#c1bdc6;
+    font-size:15px;
+    line-height:1.6;
+    font-weight:700
+}
+
+.links {
+    display:grid;
+    gap:12px
+}
+
+/* Sosyal medya bağlantı kartları */
+.link-card {
+    min-height:77px;
+    padding:11px 15px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    color:inherit;
+    text-decoration:none;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.14);
+    background:linear-gradient(90deg,rgba(54,50,63,.76),rgba(42,39,51,.76));
+    transition:.18s
+}
+
+.link-card:hover {
+    transform:translateY(-2px);
+    border-color:rgba(191,121,221,.45)
+}
+
+.icon {
+    flex:0 0 48px;
+    width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:#fff;
+    overflow:hidden
+}
+
+.icon img {
+    display:block;
+    width:27px;
+    height:27px;
+    object-fit:contain
+}
+
+.link-text {
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    flex:1
+}
+
+.link-text strong {
+    font-size:15px;
+    font-weight:900
+}
+
+.link-text small {
+    color:#a8a4ad;
+    font-size:12px;
+    font-weight:700
+}
+
+.arrow {
+    color:#aaa6af;
+    font-size:22px
+}
+
+.footer-text {
+    margin-top:21px;
+    text-align:center;
+    color:#85808b;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:2px
+}
+
+@media(max-width:520px) {
+    .background {
+        top:0;
+        left:0;
+        width:100vw;
+        height:100vh;
+        height:100lvh;
+        filter:blur(6px) brightness(.68) saturate(.82);
+        background-size:cover;
+        background-position:center center
+    }
+
+    .page {
+        padding:14px 12px 24px
+    }
+
+    .name-pill {
+        min-height:50px;
+        font-size:15px
+    }
+
+    .site-logo {
+        width:28px;
+        height:28px
+    }
+
+    .card {
+        margin-top:18px;
+        padding:24px 17px 22px;
+        border-radius:25px
+    }
+
+    .profile-wrap {
+        width:105px;
+        height:105px
+    }
+
+    .intro {
+        font-size:14px;
+        margin-bottom:24px
+    }
+
+    .link-card {
+        min-height:72px;
+        padding:10px 12px;
+        gap:12px
+    }
+
+    .icon {
+        flex-basis:44px;
+        width:44px;
+        height:44px
+    }
+
+    .icon img {
+        width:25px;
+        height:25px
+    }
+
+    .link-text strong {
+        font-size:14px
+    }
+
+}
+
+/* =========================
+   SAYFA ACILIS ANIMASYONU
+   Panel hafif asagidan gelerek fade-in yapar.
+   ========================= */
+.card {
+    animation: cardEntrance 2400ms cubic-bezier(.22, .8, .3, 1) both;
+}
+
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hareket azaltma tercihi olan kullanicilarda animasyonu kapat. */
+@media (prefers-reduced-motion: reduce) {
+    .card {
+        animation: none;
+    }
+}
